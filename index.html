@@ -24,8 +24,8 @@
 @media(max-width:900px){.desktop-nav{gap:16px}.desktop-header{width:92%}.hero{width:92%;grid-template-columns:40% 60%}.hero h1{font-size:58px}.services{width:92%;grid-template-columns:repeat(2,1fr)}.quote{width:92%}.about{width:92%;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:35px}.service-modal{grid-template-columns:1fr;overflow:auto}.service-modal-image{padding:18px}.service-modal-copy{padding:42px 30px 34px}.service-modal-copy h2{font-size:34px}.service-modal-image img{max-height:48vh}}
 @media(max-width:700px){.desktop-header{display:none}.mobile-hero{display:block;padding:18px 6% 0}.mobile-header{display:flex;align-items:center;justify-content:space-between;gap:8px}.mobile-brand{font-size:13px;font-weight:800;letter-spacing:3px}.mobile-actions{display:flex;gap:8px}.mobile-contact{border-radius:13px;padding:12px 14px}.menu-icon{display:grid;width:44px;height:44px;border:1px solid #cad5e8;border-radius:13px;background:#fff;place-items:center;font-size:23px;color:#17213a}.mobile-menu-panel{display:none;margin-top:10px;padding:8px;background:#fff;border:1px solid #dfe7f5;border-radius:16px}.mobile-menu-panel.open{display:grid}.mobile-menu-panel a{padding:12px;color:#17213a;text-decoration:none;font-weight:700}.mobile-hero h1{font-size:clamp(43px,12vw,58px);line-height:.9;letter-spacing:-3px;margin:34px 0 0}.mobile-hero h1 span{display:block}.mobile-hero .tagline{font-size:16px;line-height:1.5;margin:18px 0 0;max-width:340px}.hero{width:92%;padding:22px 0 14px;display:block}.hero-copy{display:none}.hero-visual{width:100%;height:auto;border-radius:22px;box-shadow:0 18px 45px rgba(24,48,96,.10)}.services{width:90%;padding:12px 0 16px;display:grid;grid-template-columns:1fr;gap:14px}.service-card{min-height:0;padding:23px;border-radius:20px}.service-icon{width:55px;height:55px;margin-bottom:16px}.service-card h2{font-size:19px}.service-card p{font-size:15px;line-height:1.5}.service-link{font-size:15px;margin-top:18px}.quote{width:90%;margin:5px auto 28px;padding:25px 8px}.quote p{font-size:19px;line-height:1.35}.features{width:90%;grid-template-columns:1fr;gap:8px;margin-bottom:40px}.feature{border-right:0;border-bottom:1px solid #dce5f3;padding:13px 8px}.feature:last-child{border-bottom:0}.about{width:90%;padding:42px 0;margin-bottom:100px;grid-template-columns:1fr;gap:28px}.about-copy h2{font-size:34px}.about-copy p{font-size:17px}.about-photo{max-width:520px;justify-self:center;border-radius:24px}.mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;justify-content:space-between;gap:5px;overflow:hidden;padding:9px 3%;background:rgba(247,249,253,.96);border-top:1px solid #dce5f3}.mobile-nav a{flex:1 1 0;min-width:0;text-align:center;padding:12px 7px;border:1px solid #c9d5e8;border-radius:999px;background:#fff;color:#17213a;text-decoration:none;font-size:12px;font-weight:700;white-space:nowrap}.mobile-nav a:first-child{border-color:#5ca2ff;background:#e8f2ff;color:#1465e9}.contact-pop{left:4%;right:4%;top:72px;width:auto}.status{display:none}.service-dialog{width:calc(100% - 20px);max-height:calc(100vh - 20px);border-radius:24px}.service-modal{min-height:0;max-height:calc(100vh - 20px)}.service-modal-image{padding:14px}.service-modal-image img{max-height:42vh;border-radius:12px}.service-modal-copy{padding:30px 20px 24px}.service-modal-copy h2{font-size:29px}.service-modal-copy p{font-size:16px}.service-placeholder{margin-top:24px;min-height:120px;padding:20px}.service-close{top:10px;right:10px;width:40px;height:40px}}
 
-.service-modal-image img{cursor:zoom-in}
-.service-lightbox{position:fixed;inset:0;z-index:9999;display:none;background:rgba(3,9,20,.96);overflow:auto;padding:24px}.service-lightbox.open{display:block}.service-lightbox-viewport{min-width:max-content;min-height:max-content;display:flex;align-items:flex-start;justify-content:flex-start}.service-lightbox img{display:block;width:auto;height:auto;max-width:none;max-height:none;object-fit:initial;border-radius:0;box-shadow:none;background:transparent;cursor:zoom-out}.service-lightbox-close{position:fixed;top:18px;right:18px;z-index:10000;width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(20,30,48,.85);color:#fff;font-size:32px;line-height:1;cursor:pointer}.service-lightbox-close:hover{background:rgba(40,55,80,.95)}
+.service-modal-image img{cursor:zoom-in;view-transition-name:none}
+.service-lightbox{position:fixed;inset:0;z-index:9999;display:none;background:rgba(3,9,20,.96);overflow:auto;padding:24px}.service-lightbox.open{display:block}.service-lightbox-viewport{min-width:max-content;min-height:max-content;display:flex;align-items:flex-start;justify-content:flex-start}.service-lightbox img{display:block;width:auto;height:auto;max-width:none;max-height:none;object-fit:initial;border-radius:0;box-shadow:none;background:transparent;cursor:zoom-out;view-transition-name:none}.service-lightbox-close{position:fixed;top:18px;right:18px;z-index:10000;width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(20,30,48,.85);color:#fff;font-size:32px;line-height:1;cursor:pointer}.service-lightbox-close:hover{background:rgba(40,55,80,.95)}::view-transition-group(service-image){animation-duration:520ms;animation-timing-function:cubic-bezier(.22,1,.36,1)}::view-transition-old(service-image),::view-transition-new(service-image){animation:none;mix-blend-mode:normal}
 @media(max-width:700px){.service-lightbox{padding:12px}.service-lightbox-close{top:10px;right:10px;width:42px;height:42px;font-size:28px}}
 </style>
 </head>
@@ -103,22 +103,62 @@ document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click
   const lightbox=document.getElementById('serviceLightbox');
   const lightboxImage=document.getElementById('serviceLightboxImage');
   const closeButton=document.getElementById('serviceLightboxClose');
-  let serviceWasOpen=false;
+  let activeSourceImage=null;
+  const transition=update=>{
+    if(document.startViewTransition)return document.startViewTransition(update);
+    update();
+    return {finished:Promise.resolve()};
+  };
   const openLightbox=img=>{
+    if(lightbox.classList.contains('open'))return;
+    activeSourceImage=img;
     lightboxImage.src=img.currentSrc||img.src;
     lightboxImage.alt=img.alt||'';
-    serviceWasOpen=serviceDialog.open;
-    if(serviceWasOpen)serviceDialog.close();
-    lightbox.classList.add('open');
-    lightbox.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
+    if(document.startViewTransition){
+      img.style.viewTransitionName='service-image';
+      const vt=transition(()=>{
+        img.style.viewTransitionName='none';
+        serviceDialog.close();
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+        lightboxImage.style.viewTransitionName='service-image';
+        document.body.style.overflow='hidden';
+      });
+      vt.finished.finally(()=>{img.style.viewTransitionName='';});
+    }else{
+      serviceDialog.close();
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
   };
   const closeLightbox=()=>{
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden','true');
-    lightboxImage.removeAttribute('src');
-    document.body.style.overflow='';
-    if(serviceWasOpen){serviceWasOpen=false;serviceDialog.showModal();}
+    if(!lightbox.classList.contains('open'))return;
+    const source=activeSourceImage;
+    if(document.startViewTransition&&source){
+      lightboxImage.style.viewTransitionName='service-image';
+      const vt=transition(()=>{
+        lightboxImage.style.viewTransitionName='none';
+        source.style.viewTransitionName='service-image';
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden','true');
+        serviceDialog.showModal();
+        document.body.style.overflow='';
+      });
+      vt.finished.finally(()=>{
+        source.style.viewTransitionName='';
+        lightboxImage.removeAttribute('src');
+        activeSourceImage=null;
+      });
+    }else{
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImage.removeAttribute('src');
+      document.body.style.overflow='';
+      if(source)source.style.viewTransitionName='';
+      activeSourceImage=null;
+      serviceDialog.showModal();
+    }
   };
   document.addEventListener('click',e=>{
     const img=e.target.closest('.service-modal-image img');
