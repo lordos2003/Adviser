@@ -1,0 +1,47 @@
+name: Fix lightbox top layer
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fix lightbox
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text(encoding='utf-8')
+          old='''.service-lightbox{position:fixed;inset:0;z-index:9999;display:none;background:rgba(3,9,20,.96);overflow:auto;padding:24px}.service-lightbox.open{display:block}'''
+          new='''.service-lightbox{position:fixed;inset:0;z-index:9999;display:none;width:auto;max-width:none;height:auto;max-height:none;margin:0;border:0;padding:24px;background:rgba(3,9,20,.96);overflow:auto}.service-lightbox[open]{display:block}'''
+          if old not in s: raise SystemExit('CSS marker not found')
+          s=s.replace(old,new,1)
+          old_html='''<div class="service-lightbox" id="serviceLightbox" aria-hidden="true">
+  <button class="service-lightbox-close" id="serviceLightboxClose" type="button" aria-label="Закрыть">×</button>
+  <div class="service-lightbox-viewport"><img id="serviceLightboxImage" alt=""></div>
+</div>'''
+          new_html='''<dialog class="service-lightbox" id="serviceLightbox" aria-label="Просмотр изображения">
+  <button class="service-lightbox-close" id="serviceLightboxClose" type="button" aria-label="Закрыть">×</button>
+  <div class="service-lightbox-viewport"><img id="serviceLightboxImage" alt=""></div>
+</dialog>'''
+          if old_html not in s: raise SystemExit('HTML marker not found')
+          s=s.replace(old_html,new_html,1)
+          s=s.replace("    lightbox.classList.add('open');\n    lightbox.setAttribute('aria-hidden','false');", "    lightbox.showModal();", 1)
+          s=s.replace("    lightbox.classList.remove('open');\n    lightbox.setAttribute('aria-hidden','true');", "    if(lightbox.open) lightbox.close();", 1)
+          s=s.replace("document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox();});", "lightbox.addEventListener('cancel',e=>{e.preventDefault();closeLightbox();});", 1)
+          p.write_text(s,encoding='utf-8')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Fix lightbox top layer"
+          git push
+      - name: Remove temporary workflow
+        if: always()
+        run: |
+          git rm .github/workflows/fix-lightbox.yml || true
+          git commit -m "Remove temporary lightbox fix workflow" || true
+          git push || true
