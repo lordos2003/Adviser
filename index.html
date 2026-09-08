@@ -103,9 +103,12 @@ document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click
   const lightbox=document.getElementById('serviceLightbox');
   const lightboxImage=document.getElementById('serviceLightboxImage');
   const closeButton=document.getElementById('serviceLightboxClose');
+  let serviceWasOpen=false;
   const openLightbox=img=>{
     lightboxImage.src=img.currentSrc||img.src;
     lightboxImage.alt=img.alt||'';
+    serviceWasOpen=serviceDialog.open;
+    if(serviceWasOpen)serviceDialog.close();
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -115,6 +118,7 @@ document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click
     lightbox.setAttribute('aria-hidden','true');
     lightboxImage.removeAttribute('src');
     document.body.style.overflow='';
+    if(serviceWasOpen){serviceWasOpen=false;serviceDialog.showModal();}
   };
   document.addEventListener('click',e=>{
     const img=e.target.closest('.service-modal-image img');
