@@ -79,17 +79,13 @@ document.addEventListener('click',e=>{if(!contactPop.contains(e.target)&&!e.targ
 </script>
 
 <script>
-/* Vibe-Coding modal image */
-(()=>{
+/* Vibe-Coding modal image — direct binding to service */
+document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{
   const image=document.querySelector('.service-modal-image img');
-  const title=document.getElementById('serviceTitle');
-  if(!image||!title)return;
-  const original=image.getAttribute('src');
-  const sync=()=>{image.src=title.textContent.trim()==='Vibe-Coding'?'vibe-coding.webp':original};
-  new MutationObserver(sync).observe(title,{childList:true,characterData:true,subtree:true});
-  sync();
-})();
+  if(!image)return;
+  image.src=a.dataset.service==='vibe'?'vibe-coding.webp':'cisco-uc.webp';
+  image.alt=a.dataset.service==='vibe'?'Vibe-Coding — автоматизация, скрипты, боты и веб-решения.':'Cisco Unified Communications — архитектура корпоративной связи';
+}));
 </script>
-<!-- VIBE-CODING-MODAL-IMAGE -->
 </body>
 </html>
