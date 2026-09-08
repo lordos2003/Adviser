@@ -23,6 +23,10 @@
 .service-dialog{width:min(1180px,calc(100% - 48px));max-width:none;max-height:calc(100vh - 48px);padding:0;border:1px solid rgba(93,145,255,.55);border-radius:30px;background:#0b1830;color:#fff;box-shadow:0 35px 100px rgba(6,18,42,.48);overflow:hidden}.service-dialog::backdrop{background:rgba(7,18,38,.62);backdrop-filter:blur(10px)}.service-dialog[open]{animation:dialog-in 3s cubic-bezier(.22,1,.36,1) both}.service-dialog.closing{animation:dialog-out 2s cubic-bezier(.22,1,.36,1) both}.service-modal{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);min-height:620px;max-height:calc(100vh - 48px)}.service-modal-image{padding:24px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0c1c36,#101f3a)}.service-modal-image img{display:block;width:100%;height:auto;max-height:calc(100vh - 96px);object-fit:contain;border-radius:16px;background:#fff;box-shadow:0 18px 50px rgba(0,0,0,.25)}.service-modal-copy{position:relative;padding:64px 52px 52px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(160deg,#101f3c,#0a162b)}.service-modal-kicker{font-size:11px;letter-spacing:4px;color:#67a2ff;font-weight:800;margin-bottom:18px}.service-modal-copy h2{font-size:42px;line-height:1.05;margin:0 0 18px;letter-spacing:-1px}.service-modal-copy p{font-size:18px;line-height:1.55;color:#aab9d5;margin:0}.service-modal-copy #serviceDescription .vibe-lead{display:block;color:#4d8dff;font-size:21px;line-height:1.4;font-weight:700;margin-bottom:26px}.service-modal-copy #serviceDescription .vibe-text{display:block}.service-modal-line{width:54px;height:3px;background:#2d7cff;margin:0 0 30px;border-radius:10px}.service-placeholder{margin-top:38px;min-height:180px;border:1px dashed rgba(111,166,255,.48);border-radius:18px;padding:28px;display:grid;place-items:center;text-align:center;color:#8fa3c5;font-size:15px;line-height:1.5}.service-placeholder strong{display:block;color:#c8d5ea;margin-bottom:8px;font-size:16px}.service-close{position:absolute;top:18px;right:18px;width:44px;height:44px;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:rgba(255,255,255,.06);color:#fff;font-size:27px;line-height:1;cursor:pointer}.service-close:hover{background:rgba(255,255,255,.12)}@keyframes dialog-in{from{opacity:0;transform:translateY(48px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes dialog-out{from{opacity:1;transform:translateY(0) scale(1)}to{opacity:0;transform:translateY(28px) scale(.98)}}@media(prefers-reduced-motion:reduce){.service-dialog[open],.service-dialog.closing{animation:none}}
 @media(max-width:900px){.desktop-nav{gap:16px}.desktop-header{width:92%}.hero{width:92%;grid-template-columns:40% 60%}.hero h1{font-size:58px}.services{width:92%;grid-template-columns:repeat(2,1fr)}.quote{width:92%}.about{width:92%;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:35px}.service-modal{grid-template-columns:1fr;overflow:auto}.service-modal-image{padding:18px}.service-modal-copy{padding:42px 30px 34px}.service-modal-copy h2{font-size:34px}.service-modal-image img{max-height:48vh}}
 @media(max-width:700px){.desktop-header{display:none}.mobile-hero{display:block;padding:18px 6% 0}.mobile-header{display:flex;align-items:center;justify-content:space-between;gap:8px}.mobile-brand{font-size:13px;font-weight:800;letter-spacing:3px}.mobile-actions{display:flex;gap:8px}.mobile-contact{border-radius:13px;padding:12px 14px}.menu-icon{display:grid;width:44px;height:44px;border:1px solid #cad5e8;border-radius:13px;background:#fff;place-items:center;font-size:23px;color:#17213a}.mobile-menu-panel{display:none;margin-top:10px;padding:8px;background:#fff;border:1px solid #dfe7f5;border-radius:16px}.mobile-menu-panel.open{display:grid}.mobile-menu-panel a{padding:12px;color:#17213a;text-decoration:none;font-weight:700}.mobile-hero h1{font-size:clamp(43px,12vw,58px);line-height:.9;letter-spacing:-3px;margin:34px 0 0}.mobile-hero h1 span{display:block}.mobile-hero .tagline{font-size:16px;line-height:1.5;margin:18px 0 0;max-width:340px}.hero{width:92%;padding:22px 0 14px;display:block}.hero-copy{display:none}.hero-visual{width:100%;height:auto;border-radius:22px;box-shadow:0 18px 45px rgba(24,48,96,.10)}.services{width:90%;padding:12px 0 16px;display:grid;grid-template-columns:1fr;gap:14px}.service-card{min-height:0;padding:23px;border-radius:20px}.service-icon{width:55px;height:55px;margin-bottom:16px}.service-card h2{font-size:19px}.service-card p{font-size:15px;line-height:1.5}.service-link{font-size:15px;margin-top:18px}.quote{width:90%;margin:5px auto 28px;padding:25px 8px}.quote p{font-size:19px;line-height:1.35}.features{width:90%;grid-template-columns:1fr;gap:8px;margin-bottom:40px}.feature{border-right:0;border-bottom:1px solid #dce5f3;padding:13px 8px}.feature:last-child{border-bottom:0}.about{width:90%;padding:42px 0;margin-bottom:100px;grid-template-columns:1fr;gap:28px}.about-copy h2{font-size:34px}.about-copy p{font-size:17px}.about-photo{max-width:520px;justify-self:center;border-radius:24px}.mobile-nav{position:fixed;left:0;right:0;bottom:0;z-index:90;display:flex;justify-content:space-between;gap:5px;overflow:hidden;padding:9px 3%;background:rgba(247,249,253,.96);border-top:1px solid #dce5f3}.mobile-nav a{flex:1 1 0;min-width:0;text-align:center;padding:12px 7px;border:1px solid #c9d5e8;border-radius:999px;background:#fff;color:#17213a;text-decoration:none;font-size:12px;font-weight:700;white-space:nowrap}.mobile-nav a:first-child{border-color:#5ca2ff;background:#e8f2ff;color:#1465e9}.contact-pop{left:4%;right:4%;top:72px;width:auto}.status{display:none}.service-dialog{width:calc(100% - 20px);max-height:calc(100vh - 20px);border-radius:24px}.service-modal{min-height:0;max-height:calc(100vh - 20px)}.service-modal-image{padding:14px}.service-modal-image img{max-height:42vh;border-radius:12px}.service-modal-copy{padding:30px 20px 24px}.service-modal-copy h2{font-size:29px}.service-modal-copy p{font-size:16px}.service-placeholder{margin-top:24px;min-height:120px;padding:20px}.service-close{top:10px;right:10px;width:40px;height:40px}}
+
+.service-modal-image img{cursor:zoom-in}
+.service-lightbox{position:fixed;inset:0;z-index:9999;display:none;background:rgba(3,9,20,.96);overflow:auto;padding:24px}.service-lightbox.open{display:block}.service-lightbox-viewport{min-width:max-content;min-height:max-content;display:flex;align-items:flex-start;justify-content:flex-start}.service-lightbox img{display:block;width:auto;height:auto;max-width:none;max-height:none;object-fit:initial;border-radius:0;box-shadow:none;background:transparent;cursor:zoom-out}.service-lightbox-close{position:fixed;top:18px;right:18px;z-index:10000;width:48px;height:48px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:rgba(20,30,48,.85);color:#fff;font-size:32px;line-height:1;cursor:pointer}.service-lightbox-close:hover{background:rgba(40,55,80,.95)}
+@media(max-width:700px){.service-lightbox{padding:12px}.service-lightbox-close{top:10px;right:10px;width:42px;height:42px;font-size:28px}}
 </style>
 </head>
 <body>
@@ -88,6 +92,38 @@ document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click
   image.src=imageMap[a.dataset.service]||'cisco-uc.webp';
   image.alt=altMap[a.dataset.service]||'Cisco Unified Communications — архитектура корпоративной связи';
 }));
+</script>
+
+<div class="service-lightbox" id="serviceLightbox" aria-hidden="true">
+  <button class="service-lightbox-close" id="serviceLightboxClose" type="button" aria-label="Закрыть">×</button>
+  <div class="service-lightbox-viewport"><img id="serviceLightboxImage" alt=""></div>
+</div>
+<script>
+(()=>{
+  const lightbox=document.getElementById('serviceLightbox');
+  const lightboxImage=document.getElementById('serviceLightboxImage');
+  const closeButton=document.getElementById('serviceLightboxClose');
+  const openLightbox=img=>{
+    lightboxImage.src=img.currentSrc||img.src;
+    lightboxImage.alt=img.alt||'';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  };
+  const closeLightbox=()=>{
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    lightboxImage.removeAttribute('src');
+    document.body.style.overflow='';
+  };
+  document.addEventListener('click',e=>{
+    const img=e.target.closest('.service-modal-image img');
+    if(img){e.preventDefault();e.stopPropagation();openLightbox(img);return;}
+    if(e.target===lightbox)closeLightbox();
+  });
+  closeButton.addEventListener('click',closeLightbox);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lightbox.classList.contains('open'))closeLightbox();});
+})();
 </script>
 </body>
 </html>
