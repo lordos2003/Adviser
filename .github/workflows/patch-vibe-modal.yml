@@ -1,0 +1,42 @@
+name: Apply Vibe-Coding modal image
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    if: ${{ !contains(github.event.head_commit.message, 'Use Vibe-Coding image in modal') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Patch index.html
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('index.html')
+          text = path.read_text(encoding='utf-8')
+          marker = '<!-- VIBE-CODING-MODAL-IMAGE -->'
+
+          if marker in text:
+              raise SystemExit('Patch already present')
+
+          snippet = '''\n<script>\n/* Vibe-Coding modal image */\n(()=>{\n  const image=document.querySelector('.service-modal-image img');\n  const title=document.getElementById('serviceTitle');\n  if(!image||!title)return;\n  const original=image.getAttribute('src');\n  const sync=()=>{image.src=title.textContent.trim()==='Vibe-Coding'?'vibe-coding.webp':original};\n  new MutationObserver(sync).observe(title,{childList:true,characterData:true,subtree:true});\n  sync();\n})();\n</script>\n<!-- VIBE-CODING-MODAL-IMAGE -->\n'''
+
+          if '</body>' not in text:
+              raise SystemExit('Closing body tag not found')
+
+          path.write_text(text.replace('</body>', snippet + '</body>', 1), encoding='utf-8')
+          PY
+      - name: Commit patch and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git rm .github/workflows/patch-vibe-modal.yml
+          git commit -m 'Use Vibe-Coding image in modal'
+          git push
