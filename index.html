@@ -47,13 +47,14 @@ const menuBtn=document.getElementById('menuBtn');
 const menuPanel=document.getElementById('menuPanel');
 const serviceDialog=document.getElementById('serviceDialog');
 const serviceClose=document.getElementById('serviceClose');
+const serviceImage=document.querySelector('.service-modal-image img');
 const serviceTitle=document.getElementById('serviceTitle');
 const serviceKicker=document.getElementById('serviceKicker');
 const serviceDescription=document.getElementById('serviceDescription');
 const serviceData={
- voice:{kicker:'VOICE & COMMUNICATIONS',title:'Cisco Unified Communications',description:'Cisco Unified Communications — это корпоративная система для организации рабочих коммуникаций. Она объединяет в одной экосистеме IP-телефонию, видеосвязь, сообщения, контроль присутствия и голосовую почту.<br><br>Система позволяет эффективно управлять звонками и другими видами связи, подключать удалённых сотрудников и интегрироваться с различными устройствами и сервисами.'},
- vibe:{kicker:'VIBE-CODING',title:'Вайб-кодинг',description:'<span class="vibe-lead">Любая идея. Реальные результаты.</span><span class="vibe-text">Вайб-кодинг — это современный подход к созданию решений с помощью искусственного интеллекта. Ты описываешь идею на обычном языке, а ИИ помогает превратить её в работающий результат.<br><br>Это может быть веб-сайт, приложение, скрипт, аналитика, презентация, текст, изображение или видео — возможности практически безграничны.<br><br>Главное — правильно поставить задачу. Я помогаю превратить идеи в реальные и полезные решения.</span>'},
- trader:{kicker:'TRADER',title:'План. Алгоритм. Прибыль.',description:'Стратегии, данные, бэктесты и технологии для системного подхода к торговле.'}
+ voice:{kicker:'VOICE & COMMUNICATIONS',title:'Cisco Unified Communications',description:'Cisco Unified Communications — это корпоративная система для организации рабочих коммуникаций. Она объединяет в одной экосистеме IP-телефонию, видеосвязь, сообщения, контроль присутствия и голосовую почту.<br><br>Система позволяет эффективно управлять звонками и другими видами связи, подключать удалённых сотрудников и интегрироваться с различными устройствами и сервисами.',image:'cisco-uc.webp',alt:'Cisco Unified Communications — архитектура корпоративной связи'},
+ vibe:{kicker:'VIBE-CODING',title:'Вайб-кодинг',description:'<span class="vibe-lead">Любая идея. Реальные результаты.</span><span class="vibe-text">Вайб-кодинг — это современный подход к созданию решений с помощью искусственного интеллекта. Ты описываешь идею на обычном языке, а ИИ помогает превратить её в работающий результат.<br><br>Это может быть веб-сайт, приложение, скрипт, аналитика, презентация, текст, изображение или видео — возможности практически безграничны.<br><br>Главное — правильно поставить задачу. Я помогаю превратить идеи в реальные и полезные решения.</span>',image:'vibe-coding.webp',alt:'Vibe-Coding — автоматизация, скрипты, боты и веб-решения.'},
+ trader:{kicker:'TRADER',title:'План. Алгоритм. Прибыль.',description:'Стратегии, данные, бэктесты и технологии для системного подхода к торговле.',image:'trader-dca.webp',alt:'Алготрейдинг DCA — накопление позиции, усреднение цены и автоматический выход из сделки'}
 };
 function runTransition(update){
  if(document.startViewTransition)return document.startViewTransition(update);
@@ -64,6 +65,8 @@ function openService(type){
  serviceKicker.textContent=data.kicker;
  serviceTitle.textContent=data.title;
  serviceDescription.innerHTML=data.description;
+ serviceImage.src=data.image;
+ serviceImage.alt=data.alt;
  runTransition(()=>serviceDialog.showModal());
 }
 function closeService(){
@@ -88,18 +91,6 @@ document.querySelectorAll('[data-contact]').forEach(b=>b.addEventListener('click
 menuBtn?.addEventListener('click',e=>{e.stopPropagation();menuPanel.classList.toggle('open');menuBtn.setAttribute('aria-expanded',menuPanel.classList.contains('open')?'true':'false');contactPop.classList.remove('open')});
 document.querySelectorAll('a[href^="#"]:not([data-service])').forEach(a=>a.addEventListener('click',()=>{menuPanel?.classList.remove('open');menuBtn?.setAttribute('aria-expanded','false')}));
 document.addEventListener('click',e=>{if(!contactPop.contains(e.target)&&!e.target.closest('[data-contact]'))contactPop.classList.remove('open');if(menuPanel&&!menuPanel.contains(e.target)&&e.target!==menuBtn)menuPanel.classList.remove('open')});
-</script>
-
-<script>
-/* Vibe-Coding modal image — direct binding to service */
-document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{
-  const image=document.querySelector('.service-modal-image img');
-  if(!image)return;
-  const imageMap={vibe:'vibe-coding.webp',trader:'trader-dca.webp'};
-  const altMap={vibe:'Vibe-Coding — автоматизация, скрипты, боты и веб-решения.',trader:'Алготрейдинг DCA — накопление позиции, усреднение цены и автоматический выход из сделки'};
-  image.src=imageMap[a.dataset.service]||'cisco-uc.webp';
-  image.alt=altMap[a.dataset.service]||'Cisco Unified Communications — архитектура корпоративной связи';
-}));
 </script>
 
 <div class="service-lightbox" id="serviceLightbox" aria-hidden="true">
@@ -153,11 +144,7 @@ document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click
         serviceDialog.showModal();
         document.body.style.overflow='';
       });
-      vt.finished.finally(()=>{
-        source.style.viewTransitionName='';
-        lightboxImage.removeAttribute('src');
-        activeSourceImage=null;
-      });
+      vt.finished.finally(()=>{source.style.viewTransitionName='';lightboxImage.removeAttribute('src');activeSourceImage=null;});
     }else{
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden','true');
