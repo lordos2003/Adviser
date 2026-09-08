@@ -83,8 +83,10 @@ document.addEventListener('click',e=>{if(!contactPop.contains(e.target)&&!e.targ
 document.querySelectorAll('[data-service]').forEach(a=>a.addEventListener('click',()=>{
   const image=document.querySelector('.service-modal-image img');
   if(!image)return;
-  image.src=a.dataset.service==='vibe'?'vibe-coding.webp':'cisco-uc.webp';
-  image.alt=a.dataset.service==='vibe'?'Vibe-Coding — автоматизация, скрипты, боты и веб-решения.':'Cisco Unified Communications — архитектура корпоративной связи';
+  const imageMap={vibe:'vibe-coding.webp',trader:'trader-dca.webp'};
+  const altMap={vibe:'Vibe-Coding — автоматизация, скрипты, боты и веб-решения.',trader:'Алготрейдинг DCA — накопление позиции, усреднение цены и автоматический выход из сделки'};
+  image.src=imageMap[a.dataset.service]||'cisco-uc.webp';
+  image.alt=altMap[a.dataset.service]||'Cisco Unified Communications — архитектура корпоративной связи';
 }));
 </script>
 </body>
