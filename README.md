@@ -19,7 +19,8 @@ npm run preview  # просмотр сборки — http://localhost:4173
 - `src/components/sections/*` — секции: Header, Hero, Directions (+диалоги и лайтбокс), Approach, About, Contact (+форма и футер)
 - `src/components/ui/*` — shadcn-примитивы (Button, Dialog, Sheet, Popover, Input, Label, Toaster)
 - `src/components/magicui/*` — Marquee, MagicCard, BlurFade
-- `public/media` — WebP-изображения в двух размерах (srcset)
+- `src/assets/media` — WebP-изображения в двух размерах (srcset)
+- `vite.single.config.ts` — сборка в один автономный HTML-файл (`npx vite build -c vite.single.config.ts`)
 
 `base: './'` — сборка работает и локально, и в подпапке GitHub Pages `/Adviser/`.
 Форма не требует сервера: собирает письмо и открывает почтовый клиент (mailto).
