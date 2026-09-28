@@ -11,6 +11,13 @@
 - **Основная ветка:** `main`
 - **Публикация:** GitHub Pages из ветки `main`
 
+## Новая версия (v2, превью)
+
+- **Адрес:** https://lordos2003.github.io/Adviser/v2/
+- **Исходники:** ветка [`v2-source`](https://github.com/lordos2003/Adviser/tree/v2-source) — React + Vite + TypeScript, Tailwind CSS v4, shadcn/ui, Magic UI, Motion.
+- Папка `v2/` — готовая production-сборка из ветки `v2-source`. Основной сайт (`index.html` в корне) не изменён.
+- Превью закрыто от индексации (`noindex`), пока не заменит основную версию.
+
 ## Структура сайта
 
 ### Главный экран
