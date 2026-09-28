@@ -1,0 +1,162 @@
+@import 'tailwindcss';
+
+/* ───────────────────────── Design tokens ───────────────────────── */
+@theme {
+  --font-sans: 'Onest Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --color-paper: #f4f2ed;
+  --color-paper-2: #ebe8e1;
+  --color-paper-3: #e2ded5;
+  --color-ink: #0d1424;
+  --color-ink-2: #283146;
+  --color-ink-soft: #4d566a;
+  --color-mute: #6f7688;
+  --color-night: #0a0f1c;
+  --color-night-2: #121a2c;
+
+  --color-voice: #2563ff;
+  --color-code: #6b3cf5;
+  --color-trade: #0b8f76;
+
+  /* shadcn-совместимые токены */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card: #faf9f6;
+  --color-card-foreground: var(--color-ink);
+  --color-popover: #fbfaf7;
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-paper);
+  --color-secondary: var(--color-paper-2);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-paper-2);
+  --color-muted-foreground: var(--color-ink-soft);
+  --color-accent: var(--color-paper-2);
+  --color-accent-foreground: var(--color-ink);
+  --color-destructive: #c2372b;
+  --color-border: rgb(13 20 36 / 0.12);
+  --color-input: rgb(13 20 36 / 0.16);
+  --color-ring: var(--color-voice);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-dialog-in: dialog-in 560ms var(--ease-out-expo) both;
+  --animate-dialog-out: dialog-out 240ms ease-in both;
+  --animate-fade-in: fade-in 400ms ease-out both;
+  --animate-fade-out: fade-out 220ms ease-in both;
+  --animate-pop-in: pop-in 320ms var(--ease-out-expo) both;
+  --animate-pop-out: pop-out 160ms ease-in both;
+  --animate-sheet-in: sheet-in 620ms var(--ease-out-expo) both;
+  --animate-sheet-out: sheet-out 300ms ease-in both;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-100% - var(--gap))); }
+  }
+  @keyframes dialog-in {
+    from { opacity: 0; transform: translateY(28px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes dialog-out {
+    from { opacity: 1; transform: none; }
+    to { opacity: 0; transform: translateY(14px) scale(0.985); }
+  }
+  @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes pop-out {
+    from { opacity: 1; transform: none; }
+    to { opacity: 0; transform: translateY(-4px) scale(0.99); }
+  }
+  @keyframes sheet-in {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @keyframes sheet-out {
+    from { clip-path: inset(0 0 0 0); }
+    to { clip-path: inset(0 0 100% 0); }
+  }
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--color-voice) 22%, transparent);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-voice);
+    outline-offset: 3px;
+  }
+  img { max-width: 100%; height: auto; }
+  button:not(:disabled) { cursor: pointer; }
+}
+
+/* Тонкое зерно поверх бумаги — фактура без тяжёлых картинок */
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Подчёркивание, растущее слева направо */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 420ms var(--ease-out-expo);
+}
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transition: top 200ms ease;
+}
+.skip-link:focus { top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
