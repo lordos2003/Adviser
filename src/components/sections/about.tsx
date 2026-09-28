@@ -18,7 +18,7 @@ export function About() {
         <div className="lg:col-span-5">
           <BlurFade>
             <p className="flex items-center gap-3 font-mono text-[0.6875rem] tracking-[0.22em] text-mute uppercase lg:hidden">
-              <span className="text-ink">(03)</span>
+              <span className="text-ink">(02)</span>
               <span className="h-px w-8 bg-ink/20" />
               Обо мне
             </p>
@@ -51,7 +51,7 @@ export function About() {
         <div className="lg:col-span-7 lg:pt-4">
           <BlurFade>
             <p className="hidden items-center gap-3 font-mono text-[0.6875rem] tracking-[0.22em] text-mute uppercase lg:flex">
-              <span className="text-ink">(03)</span>
+              <span className="text-ink">(02)</span>
               <span className="h-px w-8 bg-ink/20" />
               Обо мне
             </p>

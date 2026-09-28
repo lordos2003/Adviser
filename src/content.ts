@@ -110,29 +110,7 @@ export const accent: Record<Mode, string> = {
   trade: '#0b8f76',
 }
 
-export const principles = [
-  { title: 'Системный подход', text: 'От идеи до работающего результата.' },
-  { title: 'Данные и технологии', text: 'Решения на основе фактов и автоматизации.' },
-  { title: 'Надёжность', text: 'Фокус на практичности и стабильной работе.' },
-]
 
-export const keywords = [
-  'Cisco CUCM',
-  'Unity',
-  'Jabber',
-  'SIP',
-  'MRA',
-  'VoIP',
-  'Интеграции',
-  'Автоматизация',
-  'Скрипты',
-  'Боты',
-  'Веб-решения',
-  'ИИ',
-  'Алготрейдинг',
-  'Бэктесты',
-  'DCA',
-]
 
 export const contacts = {
   email: 'lordos2003@gmail.com',
@@ -153,7 +131,6 @@ export const aboutPhoto = {
 
 export const nav = [
   { href: '#directions', label: 'Направления', id: 'directions' },
-  { href: '#approach', label: 'Подход', id: 'approach' },
   { href: '#about', label: 'Обо мне', id: 'about' },
   { href: '#contact', label: 'Контакты', id: 'contact' },
 ]

@@ -85,7 +85,7 @@ export function Contact({ topic, onTopic }: { topic: Topic; onTopic: (t: Topic) 
       <div className="mx-auto max-w-[1440px] px-4 pt-24 sm:px-8 sm:pt-32 lg:px-12 lg:pt-40">
         <SectionHead
           dark
-          index="04"
+          index="03"
           label="Контакты"
           id="contact-title"
           title={

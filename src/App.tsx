@@ -3,7 +3,6 @@ import { domAnimation, LazyMotion, MotionConfig } from 'motion/react'
 
 import { Toaster } from '@/components/ui/sonner'
 import { About } from '@/components/sections/about'
-import { Approach } from '@/components/sections/approach'
 import { Contact } from '@/components/sections/contact'
 import { Directions } from '@/components/sections/directions'
 import { Header } from '@/components/sections/header'
@@ -32,7 +31,6 @@ export default function App() {
         <main id="main">
           <Hero />
           <Directions onDiscuss={discuss} />
-          <Approach />
           <About />
           <Contact topic={topic} onTopic={setTopic} />
         </main>
