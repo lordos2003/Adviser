@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lordos2003.github.io/Adviser/sitemap.xml
